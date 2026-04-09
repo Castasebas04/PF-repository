@@ -18,9 +18,9 @@ def get_mean_and_std(x):
     return x_mean, x_std
 
 if __name__ == "__main__":
-    # 1. Configura tus carpetas aquí (Pon las rutas correctas a tus carpetas reales)
+    # 1. Configura rutas
     input_dir = r"C:\Users\Sebastián\Documents\Uninorte\9no semestre\PF\PF repository\IMG BR-007-HYE2-25"
-    output_dir = r"C:\Users\Sebastián\Documents\Uninorte\9no semestre\PF\PF repository\Prueba Reinhard 2"
+    output_dir = r"C:\Users\Sebastián\Documents\Uninorte\9no semestre\PF\PF repository\Prueba Reinhard Informe"
     template_path = r"C:\Users\Sebastián\Documents\Uninorte\9no semestre\PF\PF repository\ref hye.png"
 
     # Crear carpeta de salida si no existe
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     # 2. Leer y calcular estadísticas de la imagen plantilla (Template)
     print("Cargando imagen template...")
     
-    # --- AQUI ESTA LA MAGIA: Usamos nuestra función especial en vez de cv2.imread ---
+  
     template_img = leer_imagen(template_path)
     
     if template_img is None:
