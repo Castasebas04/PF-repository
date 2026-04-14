@@ -8,9 +8,9 @@ transformaciones = A.Compose([
     A.HorizontalFlip(p=0.5),
     A.VerticalFlip(p=0.5),
     A.RandomRotate90(p=0.5),
-    A.ElasticTransform(alpha=1, sigma=50, p=0.3),
-    A.GridDistortion(num_steps=5, distort_limit=0.3, p=0.3),
-    A.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.05, p=0.4),
+    A.ElasticTransform(alpha=200, sigma=15, p=1),
+    A.GridDistortion(num_steps=5, distort_limit=0.5, p=1),
+    A.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4, hue=0.1, p=1),
 ])
 
 # 2. Rutas de tus archivos
