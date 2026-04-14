@@ -1,0 +1,34 @@
+import os
+import shutil
+
+# 1. Configura tus rutas
+ruta_original = r"" # Cambia esto por tu ruta real
+ruta_destino = r""
+
+# 2. Crear estructura de carpetas
+folder_images = os.path.join(ruta_destino, 'images')
+folder_masks = os.path.join(ruta_destino, 'masks')
+
+os.makedirs(folder_images, exist_ok=True)
+os.makedirs(folder_masks, exist_ok=True)
+
+# 3. Clasificar archivos
+archivos = os.listdir(ruta_original)
+contador_img = 0
+contador_mask = 0
+
+for nombre in archivos:
+    ruta_full = os.path.join(ruta_original, nombre)
+    
+    # Saltar si es una carpeta
+    if os.path.isdir(ruta_full):
+        continue
+        
+    if "-mask" in nombre:
+        shutil.move(ruta_full, os.path.join(folder_masks, nombre))
+        contador_mask += 1
+    else:
+        shutil.move(ruta_full, os.path.join(folder_images, nombre))
+        contador_img += 1
+
+print(f"¡Listo! Movidas {contador_img} imágenes y {contador_mask} máscaras.")
