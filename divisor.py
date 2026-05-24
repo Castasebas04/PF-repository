@@ -2,7 +2,7 @@ import os
 import shutil
 
 # 1. Configura tus rutas
-ruta_original = r"" # Cambia esto por tu ruta real
+ruta_original = r""
 ruta_destino = r""
 
 # 2. Crear estructura de carpetas
