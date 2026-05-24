@@ -3,11 +3,11 @@ import cv2
 import os
 
 def leer_imagen(ruta):
-    """Lee imágenes en rutas con tildes o caracteres especiales en Windows"""
+    "Lee imágenes"
     return cv2.imdecode(np.fromfile(ruta, dtype=np.uint8), cv2.IMREAD_COLOR)
 
 def guardar_imagen(ruta, imagen):
-    """Guarda imágenes en rutas con tildes o caracteres especiales en Windows"""
+    "Guarda imágenes"
     cv2.imencode('.png', imagen)[1].tofile(ruta)
 
 def get_mean_and_std(x):
@@ -27,7 +27,7 @@ if __name__ == "__main__":
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    # 2. Leer y calcular estadísticas de la imagen plantilla (Template)
+    # 2. Leer y calcular estadísticas de la imagen base
     print("Cargando imagen template...")
     
   
@@ -37,7 +37,7 @@ if __name__ == "__main__":
         print(f"ERROR: No se pudo cargar el template. Revisa la ruta:\n{template_path}")
         exit()
 
-    # Convertir a LAB y a float32 para la matemática
+    # Convertir a LAB y a float32
     template_lab = cv2.cvtColor(template_img, cv2.COLOR_BGR2LAB).astype("float32")
     t_mean, t_std = get_mean_and_std(template_lab)
 
